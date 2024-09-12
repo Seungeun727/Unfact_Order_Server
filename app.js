@@ -1,19 +1,21 @@
 const express = require('express');
 const app =  express();
 require("dotenv").config();
+const router = express.router();
 
-const port = 3000;
+const port = process.env.LOCAL_PORT;
 
-console.log("db port Result", port);
+// 라우터 설정
+const indexRouter = require('./router/index');
 
 app.use(express.json());
+app.use('/', indexRouter, router);
 
 app.get('/' , (req, res) => {
     res.send('Express start');
 });
   
 app.listen(port, () => {
-    console.log('하이');
     console.log(`listening on ${port}...`);
 });
   
