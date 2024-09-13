@@ -2,6 +2,7 @@ const express = require('express');
 const app =  express();
 require("dotenv").config();
 const router = express.router();
+const db = require("./db/index.js");
 
 const port = process.env.LOCAL_PORT;
 
